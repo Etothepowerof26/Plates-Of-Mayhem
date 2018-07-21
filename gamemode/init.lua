@@ -33,14 +33,14 @@ POM.plateDistInc = 350
 
 POM.actions = {
 	{msg = "%s random player(s) will be ignited", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:Ignite(math.random(POM.settings.minIgnitionL, POM.settings.maxIgnitionL))
 		end
 	end},
 	{msg = "%s random player(s) will explode", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then 
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then 
 			local explode = ents.Create("env_explosion")
 			explode:SetPos(p:GetPos())
 			explode:Spawn()
@@ -50,69 +50,69 @@ POM.actions = {
 		end
 	end},
 	{msg = "%s random player(s) will recieve a random amount health", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetHealth(p:Health() + math.random(1, POM.settings.maxHealthG))
 		end
 	end},
 	{msg = "%s random player(s) will become smaller", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetModelScale(p:GetModelScale() * POM.settings.smallModel)
 		end
 	end},
 	{msg = "%s random player(s) will become bigger", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetModelScale(p:GetModelScale() * POM.settings.bigModel)
 		end
 	end},
 	{msg = "%s random player(s) will be able to superjump", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetGravity(.45)
 		end
 	end},
 	{msg = "%s random player(s) will start dancing", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:ConCommand("act dance")
 		end
 	end},
 	{msg = "%s random player(s) will teleported in the air", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetPos(p:GetPos()+Vector(0,0,200))
 		end
 	end},
 	{msg = "%s random player(s) will recieve super speed", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetRunSpeed(800)
 		end
 	end},
 	{msg = "%s random player(s) will recieve a random weapon with 3 shots", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then 
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then 
 			p:Give("weapon_357")
 			p:GetActiveWeapon():SetClip1(3)
 		end
 	end},
 	{msg = "%s random player(s) will recieve a grenade", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then 
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then 
 			p:Give("weapon_frag")
 		end
 	end},
 	{msg = "%s random player(s) will recieve a crowbar", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then 
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then 
 			p:Give("weapon_crowbar")
 		end
 	end},
 	{msg = "%s random player(s) will be swapped with each other", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then 
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then 
 			local p2 = table.Random(POM.playerAlive)
 			local b = p:GetPos()
 			p:SetPos(p2:GetPos())
@@ -132,8 +132,8 @@ POM.actions = {
 				math.random(-POM.settings.maxIgnitionL, POM.settings.maxIgnitionL)
 			)
 		)
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetPos(p:GetPos()+Vector(0,0,30))
 		end
 	end},
@@ -143,16 +143,16 @@ POM.actions = {
 		plate:SetColor(Color(c.r,c.g,c.b,127))
 	end},
 	{msg = "%s random player(s)' model color will be randomized", action = function(plate)
-		local p = plate:GetNWEntity("player", 0)
+		local p = plate:GetNWEntity("player", NULL)
 		local r = math.random
-		if (p ~= 0 and p:IsValid()) then
+		if (p ~= NULL and IsValid(p)) then
 			p:SetColor(Color(r(0,255),r(0,255),r(0,255)))
 		end
 	end},
 	{msg = "%s random player(s)' plate will become smaller", action = function(plate)
-		plate:SetModelScale(plate:GetModelScale() - (math.random(1, POM.settings.maxPlateScale) / 10))
+		--plate:SetModelScale(plate:GetModelScale() - (math.random(1, POM.settings.maxPlateScale) / 10))
 		local mode = "/plates/plate"
-		--if plate:GetModel():find("cube") then mode = "/blocks/cube" end
+		if plate:GetModel():find("cube") then mode = "/blocks/cube" end
 		local plateSizex, plateSizey = 
 			string.gmatch(plate:GetModel(), "models/hunter"..mode.."(.-)x(.-).mdl")()
 		plateSizex, plateSizey = 
@@ -161,9 +161,9 @@ POM.actions = {
 			plateSizex, plateSizey))
 	end},
 	{msg = "%s random player(s)' plate will become bigger", action = function(plate)
-		plate:SetModelScale(plate:GetModelScale() - (math.random(1, POM.settings.maxPlateScale) / 10))
+		--plate:SetModelScale(plate:GetModelScale() - (math.random(1, POM.settings.maxPlateScale) / 10))
 		local mode = "/plates/plate"
-		--if plate:GetModel():find("cube") then mode = "/blocks/cube" end
+		if plate:GetModel():find("cube") then mode = "/blocks/cube" end
 		local plateSizex, plateSizey = 
 			string.gmatch(plate:GetModel(), "models/hunter"..mode.."(.-)x(.-).mdl")()
 		plateSizex, plateSizey = 
@@ -181,8 +181,8 @@ POM.actions = {
 	{msg = "%s random player(s)' plate will become a cube", action = function(plate)
 		local r = math.random
 		plate:SetModel("models/hunter/blocks/cube4x4x4.mdl")
-		local p = plate:GetNWEntity("player", 0)
-		if (p ~= 0 and p:IsValid()) then
+		local p = plate:GetNWEntity("player", NULL)
+		if (p ~= NULL and IsValid(p)) then
 			p:SetPos(p:GetPos()+Vector(0,0,100))
 		end
 	end}
@@ -196,7 +196,7 @@ POM.events = {
 	{msg = "Everyone will recieve a headcrab", action = function()
 		for i,v in pairs(player.GetAll()) do
 			local drop = ents.Create("npc_headcrab")
-			drop:SetPos(v:GetPos() + Vector(0,0,20))
+			drop:SetPos(v:GetPos() + Vector(0,0,100))
 			drop:Spawn()
 		end
 	end}
@@ -379,7 +379,7 @@ function POM.startGame()
 			v:StripWeapons()
 		end
 		for _,plate in pairs(POM.plates) do
-			if (plate:GetNWEntity("player", 0) == 0) then
+			if (plate:GetNWEntity("player", NULL) == 0) then
 				table.remove(POM.plates, _)
 				plate:Remove()
 			end
