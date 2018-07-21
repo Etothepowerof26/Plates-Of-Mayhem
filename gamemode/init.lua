@@ -1,35 +1,16 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
+include("pom/config.lua")
 util.AddNetworkString("addText_POM")
 
 local TEAM_SPEC, TEAM_PLAY = 1, 2
 
-POM = {}
-
-POM.settings = {}
-POM.settings.plateActionDelay = 10
-POM.settings.maxIgnitionL = 10
-POM.settings.minIgnitionL = 5
-POM.settings.maxHealthG = 50
-POM.settings.smallModel = .8
-POM.settings.bigModel = 1.2
-POM.settings.velocity = 100
-POM.settings.maxPlateScale = 5
-POM.plates = {}
-POM.baseModel = "models/hunter/plates/plate8x8.mdl"
-POM.plateModel = "models/hunter/plates/plate5x5.mdl"
-POM.baseColor = Color(255, 255, 255)
-POM.basePos = Vector(-2400,-1200,12000)
-POM.platePos = Vector(-1000,-1900,12000)
-POM.spawnModel = POM.baseModel
-POM.spawnPos = POM.basePos + Vector(0,0,100)
-POM.neededPlayers = 3
 POM.gameStarted = false
+POM.spawnModel = POM.baseModel
+POM.plates = {}
 POM.playerAlive = {}
-POM.maxFallHeight = 11000
 POM.playerDeathmatch = false
-POM.plateDistInc = 350
 
 POM.actions = {
 	{msg = "%s random player(s) will be ignited", action = function(plate)
