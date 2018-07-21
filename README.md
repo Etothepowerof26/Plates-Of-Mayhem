@@ -25,27 +25,3 @@ How to add actions / events:
 		drop:Spawn() -- Spawns it
 	end},
 ```
-
-# Config
-```lua
-POM.settings.plateActionDelay = 10
-POM.settings.maxIgnitionL = 10
-POM.settings.minIgnitionL = 5
-POM.settings.maxHealthG = 50
-POM.settings.smallModel = .8
-POM.settings.bigModel = 1.2
-POM.settings.velocity = 100
-POM.settings.maxPlateScale = 5
-POM.baseModel = "models/hunter/plates/plate8x8.mdl"
-POM.plateModel = "models/hunter/plates/plate5x5.mdl"
-POM.baseColor = Color(255, 255, 255)
-POM.basePos = Vector(-2400,-1200,12000)
-POM.platePos = Vector(-1000,-1900,12000)
-POM.spawnModel = POM.baseModel
-POM.spawnPos = POM.basePos + Vector(0,0,100)
-POM.neededPlayers = 3
-POM.gameStarted = false
-POM.maxFallHeight = 11000
-POM.playerDeathmatch = false
-POM.plateDistInc = 350
-```
